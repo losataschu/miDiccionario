@@ -1,0 +1,451 @@
+{
+  "Entradas": [
+    [
+      "{\"palabra\": \"\", \"fecha\": \"\"}"
+    ],
+    [
+      {"abarbeiten"},
+      {[29,11,2022]}
+    ],
+    [
+      {"abbilden"},
+      {[14,12,2022]}
+    ],
+    [
+      {"abfangen"},
+      {[24,5,2023]}
+    ],
+    [
+      {"die Abfolge"},
+      {[12,12,2022]}
+    ],
+    [
+      {"abgelten"},
+      {[28,12,2022]}
+    ],
+    [
+      {"abgrenzen"},
+      {[24,5,2023]}
+    ],
+    [
+      {"abkaufen"},
+      {[7,12,2022]}
+    ],
+    [
+      {"die Anforderung"},
+      {[14,12,2022]}
+    ],
+    [
+      {"anstaunen"},
+      {[29,11,2022]}
+    ],
+    [
+      {"auf etw. angewiesen sein"},
+      {[28,12,2022]}
+    ],
+    [
+      {"anwachsen"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Aufeinanderfolge"},
+      {[12,12,2022]}
+    ],
+    [
+      {"der Aufschluss"},
+      {[28,12,2022]}
+    ],
+    [
+      {"das Aufsichtsrecht"},
+      {[28,12,2022]}
+    ],
+    [
+      {"aufstellen"},
+      {[3,1,2023]}
+    ],
+    [
+      {"aufteilen"},
+      {[14,12,2022]}
+    ],
+    [
+      {"aus etw. heraus"},
+      {[28,12,2022]}
+    ],
+    [
+      {"auslagern"},
+      {[14,12,2022]}
+    ],
+    [
+      {"die Auslassung"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Ausschluss"},
+      {[24,5,2023]}
+    ],
+    [
+      {"austeilen"},
+      {[15,12,2022]}
+    ],
+    [
+      {"beeintraechtigen"},
+      {[21,12,2022]}
+    ],
+    [
+      {"begleichen"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Belieferung"},
+      {[13,12,2022]}
+    ],
+    [
+      {"bereitstellen"},
+      {[21,12,2022]}
+    ],
+    [
+      {"der Bestand"},
+      {[7,12,2022]}
+    ],
+    [
+      {"die Bestimmung"},
+      {[12,12,2022]}
+    ],
+    [
+      {"die Besteuerung"},
+      {[7,12,2022]}
+    ],
+    [
+      {"bestmoeglich"},
+      {[13,12,2022]}
+    ],
+    [
+      {"bewirten"},
+      {[29,12,2022]}
+    ],
+    [
+      {"die Bezugsgroesse"},
+      {[21,12,2022]}
+    ],
+    [
+      {"die Delta-Analyse"},
+      {[28,12,2022]}
+    ],
+    [
+      {"durchreichen"},
+      {[13,12,2022]}
+    ],
+    [
+      {"einheitlich"},
+      {[21,12,2022]}
+    ],
+    [
+      {"einordnen"},
+      {[14,12,2022]}
+    ], 
+    [
+      {"der Einsatz"},
+      {[15,12,2022]}
+    ],
+    [
+      {"einsortieren"},
+      {[4,1,2023]}
+    ],
+    [
+      {"entbehrlich"},
+      {[28,12,2022]}
+    ],
+    [ 
+      {"das Entgelt"},
+      {[7,12,2022]}
+    ],
+    [
+      {"entkoppeln"},
+      {[28,12,2022]}
+    ],
+    [
+      {"das Fachkonzept"},
+      {[12,12,2022]}
+    ],
+    [
+      {"fachlich"},
+      {[12,12,2022]}
+    ],
+    [
+      {"die Fachlichkeit"},
+      {[21,12,2022]}
+    ],
+    [
+      {"die Festlegung"},
+      {[12,12,2022]}
+    ],
+    [
+      {"das Formelwerk"},
+      {[13,12,2022]}
+    ],
+    [
+      {"foermlich"},
+      {[29,11,2022]}
+    ],
+    [
+      {"gegenueberstellen"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Geschaeftsvorfall"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Gesichtspunkt"},
+      {[28,12,2022]}
+    ],
+    [
+      {"gewaehrleisten"},
+      {[5,12,2022]}
+    ],
+    [
+      {"die Gewinnung"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Glaeubiger"},
+      {[4,1,2023]}
+    ],
+    [ 
+      {"hindern"},
+      {[29,11,2022]}
+    ],
+    [
+      {"hintereinanderschalten"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Hochrechnung"},
+      {[12,12,2022]}
+    ],
+    [
+      {"infolge"},
+      {[28,12,2022]}
+    ],
+    [
+      {"das Interface"},
+      {[13,12,2022]}
+    ],
+    [
+      {"die Kapitalanlage"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Kapitalertrag"},
+      {[28,12,2022]}
+    ],
+    [
+      {"das Kapitalwahlrecht"},
+      {[24,05,2023]}
+    ]
+    [
+      {"markant"},
+      {[28,12,2022]}
+    ],
+    [
+      {"misslingen"},
+      {[29,11,2022]}
+    ],
+    [
+      {"nachgelagert"},
+      {[13,12,2022]}
+    ],
+    [
+      {"nahelegen"},
+      {[28,12,2022]}
+    ],
+    [
+      {"niederdruecken"},
+      {[29,11,2022]}
+    ],
+    [
+      {"notduerftig"},
+      {[29,11,2022]}
+    ],
+    [
+      {"die Plausibilisierung"},
+      {[13,12,2022]}
+    ],
+    [
+      {"raushauen"},
+      {[15,12,2022]}
+    ],
+    [
+      {"die Rechnungslegung"},
+      {[12,12,2022]}
+    ],
+    [
+      {"die Rentenperiode"},
+      {[29,12,2022]}
+    ],
+    [
+      {"der Request"},
+      {null}
+    ],
+    [
+      {"ruegen"},
+      {[23,5,2023]}
+    ],
+    [
+      {"saemtlich"},
+      {[12,12,2022]}
+    ],
+    [
+      {"der Schlitz"},
+      {[5,12,2022]}
+    ],
+    [
+      {"staffeln"},
+      {[24,5,2023]}
+    ],
+    [
+      {"der Stakeholder"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Steuerung"},
+      {[12,12,2022]}
+    ],
+    [
+      {"das Stichwort"},
+      {[5,12,2022]}
+    ],
+    [
+      {"stocken"},
+      {[29,11,2022]}
+    ],
+    [
+      {"die Software"},
+      {null}
+    ],
+    [
+      {"das Tafelwerk"},
+      {[13,12,2022]}
+    ],
+    [
+      {"das Tool"},
+      {null}
+    ],
+    [
+      {"uebersichtlich"},
+      {[7,12,2022]}
+    ],
+    [
+      {"ueberdenken"},
+      {[29,11,2022]}
+    ],
+    [
+      {"der Umfang"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Ueberschussbeteiligung"},
+      {[13,12,2022]}
+    ],
+    [
+      {"unerlaesslich"},
+      {[21,12,2022]}
+    ],
+    [
+      {"ungemein"},
+      {[29,11,2022]}
+    ],
+    [
+      {"unterlassen"},
+      {[26,5,2023]}
+    ],
+    [
+      {"unuebersichtlich"},
+      {[7,12,2022]}
+    ],
+    [
+      {"unzulaenglich"},
+      {[14,12,2022]}
+    ],
+    [
+      {"verbindlich"},
+      {[28,12,2022]}
+    ],
+    [
+      {"verkomplizieren"},
+      {[4,1,2023]}
+    ],
+    [
+      {"verschaffen"},
+      {[13,12,2022]}
+    ],
+    [
+      {"vervollstaendigen"},
+      {[12,12,2022]}
+    ],
+    [
+      {"die Verweildauer"},
+      {[28,12,2022]}
+    ],
+    [
+      {"der Vorgang"},
+      {[28,12,2022]}
+    ],
+    [
+      {"das Vorhaben"},
+      {[12,12,2022]}
+    ],
+    [
+      {"vorlaeufig"},
+      {[28,12,2022]}
+    ],
+    [
+      {"vorrangig"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Vorschrift"},
+      {[7,12,2022]}
+    ],
+    [
+      {"vorverlegen"},
+      {[24,5,2023]}
+    ],
+    [
+      {"die Wahrung"},
+      {[26,5,2023]}
+    ],
+    [
+      {"wartbar"},
+      {[14,12,2022]}
+    ],
+    [
+      {"der Zeitwert"},
+      {[28,12,2022]}
+    ],
+    [
+      {"zusammensetzen"},
+      {[14,12,2022]}
+    ],
+    [
+      {"der Zusatz"},
+      {[13,12,2022]}
+    ],
+    [
+      {"die Zustaendigkeit"},
+      {[28,12,2022]}
+    ],
+    [
+      {"die Zusicherung"},
+      {[5,12,2022]}
+    ],
+    [
+      {"zuweisen"},
+      {[12,12,2022]}
+    ],
+    [
+      {"zwangslaeufig"},
+      {[28,12,2022]}
+    ],
+  ]
+}
