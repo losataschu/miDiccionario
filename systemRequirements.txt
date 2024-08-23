@@ -1,5 +1,9 @@
 El diccionario se compone de entradas.
-Cada entrada tiene asociada una fecha. Adicionalmente puede tener asociados un área de uso y una formalidad.
+Cada entrada tiene asociada una fecha.
 Las entradas que consistan de dos o más palabras pueden ser expresiones o sustantivos. Cada sustantivo debe tener un artículo. Las expresiones son frases de dos o más palabras que no sean sustantivos.
+El diccionario debe permitir agregar nuevas entradas, agrupar y listar entradas según diferentes criterios como fecha, orden alfabético y tipo de entrada. Combinaciones entre estos criterios también serán permitidas.
+
+Propiedades adicionales por implementar:
+Cada entrada puede tener asociados un área de uso y una formalidad.
 Las entradas que no sean expresiones pueden ser catalogadas en una categoría lingüística. Un sustantivo siempre tendrá esa categoría.
-El diccionario debe permitir agregar nuevas entradas, agrupar y listar entradas según diferentes criterios: fecha, orden alfabético, categoría lingüística, área de uso y formalidad. Combinaciones entre estos criterios también serán permitidos
+Otros futuros criterios para filtrar las entradas pueden ser categoría lingüística, área de uso y formalidad.
