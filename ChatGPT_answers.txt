@@ -1,0 +1,66 @@
+FIRST ANSWER 13.09.2024:
+
+The issue lies with the `orient` parameter you're using with `pandas.read_json`. The `orient='split'` option expects the JSON to be in a specific format that includes separate keys for 'index', 'columns', and 'data'. Your JSON doesn't follow that format. Instead, you should use `orient='records'` for your JSON structure.
+
+Here is the correct way to load your JSON file using Pandas:
+
+1. Ensure your JSON file (`entries.json`) looks like this:
+
+    ```json
+    {
+      "entries": [
+        {
+          "entry": "abfolgen",
+          "date": [2022, 12, 29]
+        },
+        {
+          "entry": "die Bearbeitung",
+          "date": [2023, 1, 12]
+        }
+      ]
+    }
+    ```
+
+2. Use the following Python code to read the JSON file and convert it into a DataFrame with "entry" and "date" as columns:
+
+    ```python
+    import pandas as pd
+    import json
+
+    # Load the JSON file
+    with open('entries.json') as f:
+        data = json.load(f)
+
+    # Extract the list of entries
+    entries = data['entries']
+
+    # Convert to DataFrame
+    df = pd.DataFrame(entries)
+
+    print(df)
+    ```
+
+When you run this code, you should get a DataFrame with "entry" and "date" as column names:
+
+```
+            entry         date
+0        abfolgen  [2022, 12, 29]
+1  die Bearbeitung  [2023, 1, 12]
+```
+
+If you want to convert the 'date' list into a proper date format, you can do so with additional processing:
+
+```python
+# Convert 'date' column to proper date format
+df['date'] = pd.to_datetime(df['date'].apply(lambda x: f'{x[0]}-{x[1]:02d}-{x[2]:02d}'))
+
+print(df)
+```
+
+This will result in the 'date' column being formatted as proper dates:
+
+```
+            entry       date
+0        abfolgen 2022-12-29
+1  die Bearbeitung 2023-01-12
+```
