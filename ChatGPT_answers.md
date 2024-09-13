@@ -172,7 +172,7 @@ print(df)
 
 This will give you a DataFrame with the 'date' column correctly formatted as dates.
 
-#####
+- - - 
 
 ### Using `orient='records'`
 
