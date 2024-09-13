@@ -65,9 +65,9 @@ This will result in the 'date' column being formatted as proper dates:
 1  die Bearbeitung 2023-01-12
 ```
 
-#####
+- - -
 
-Of course! Let's break down the `lambda` function and how it works in this context.
+Let's break down the `lambda` function and how it works in this context.
 
 ### What is a Lambda Function?
 
