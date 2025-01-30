@@ -1,212 +1,196 @@
 {
   "Entradas": [
     {
-      "palabra":"abarbeiten",
-      "fecha":[29,11,2022]
+      "palabra": "bewirten",
+      "fecha": [15, 11, 2022]
     },
     {
-      "palabra":"abfangen",
-      "fecha":[24,5,2023]
+      "palabra": "die Abfolge",
+      "fecha": [9, 1, 2025]
     },
     {
-      "palabra":"die Abfolge",
-      "fecha":[12,12,2022]
+      "palabra": "zusammensetzen",
+      "fecha": [7, 7, 2024]
     },
     {
-      "palabra":"abgelten",
-      "fecha":[28,12,2022]
+      "palabra": "misslingen",
+      "fecha": [20, 12, 2023]
     },
     {
-      "palabra":"abgrenzen",
-      "fecha":[24,5,2023]
+      "palabra": "das Entgelt",
+      "fecha": [2, 11, 2022]
     },
     {
-      "palabra":"die Besteuerung",
-      "fecha":[7,12,2022]
+      "palabra": "notduerftig",
+      "fecha": [12, 4, 2023]
     },
     {
-      "palabra":"bestmoeglich",
-      "fecha":[13,12,2022]
+      "palabra": "die Besteuerung",
+      "fecha": [29, 3, 2024]
     },
     {
-      "palabra":"bewirten",
-      "fecha":[29,12,2022]
+      "palabra": "einheitlich",
+      "fecha": [25, 5, 2023]
     },
     {
-      "palabra":"durchreichen",
-      "fecha":[13,12,2022]
+      "palabra": "der Zeitwert",
+      "fecha": [18, 8, 2024]
     },
     {
-      "palabra":"einheitlich",
-      "fecha":[21,12,2022]
+      "palabra": "verschaffen",
+      "fecha": [6, 12, 2023]
     },
     {
-      "palabra":"einordnen",
-      "fecha":[14,12,2022]
-    }, 
-    {
-      "palabra":"der Einsatz",
-      "fecha":[15,12,2022]
+      "palabra": "foermlich",
+      "fecha": [3, 11, 2022]
     },
     {
-      "palabra":"einsortieren",
-      "fecha":[4,1,2023]
+      "palabra": "verkomplizieren",
+      "fecha": [17, 1, 2025]
     },
     {
-      "palabra":"entbehrlich",
-      "fecha":[28,12,2022]
-    },
-    { 
-      "palabra":"das Entgelt",
-      "fecha":[7,12,2022]
+      "palabra": "der Vorgang",
+      "fecha": [28, 10, 2024]
     },
     {
-      "palabra":"entkoppeln",
-      "fecha":[28,12,2022]
+      "palabra": "die Zustaendigkeit",
+      "fecha": [4, 2, 2024]
     },
     {
-      "palabra":"das Fachkonzept",
-      "fecha":[12,12,2022]
+      "palabra": "fachlich",
+      "fecha": [14, 11, 2022]
     },
     {
-      "palabra":"fachlich",
-      "fecha":[12,12,2022]
+      "palabra": "die Plausibilisierung",
+      "fecha": [27, 9, 2024]
     },
     {
-      "palabra":"die Fachlichkeit",
-      "fecha":[21,12,2022]
+      "palabra": "einordnen",
+      "fecha": [21, 6, 2023]
     },
     {
-      "palabra":"die Festlegung",
-      "fecha":[12,12,2022]
+      "palabra": "der Zusatz",
+      "fecha": [11, 1, 2025]
     },
     {
-      "palabra":"das Formelwerk",
-      "fecha":[13,12,2022]
+      "palabra": "gegenueberstellen",
+      "fecha": [10, 2, 2024]
     },
     {
-      "palabra":"foermlich",
-      "fecha":[29,11,2022]
+      "palabra": "abfangen",
+      "fecha": [5, 3, 2023]
     },
     {
-      "palabra":"gegenueberstellen",
-      "fecha":[28,12,2022]
+      "palabra": "die Festlegung",
+      "fecha": [22, 5, 2024]
     },
     {
-      "palabra":"misslingen",
-      "fecha":[29,11,2022]
+      "palabra": "zwangslaeufig",
+      "fecha": [8, 8, 2024]
     },
     {
-      "palabra":"nachgelagert",
-      "fecha":[13,12,2022]
+      "palabra": "abgrenzen",
+      "fecha": [30, 12, 2022]
     },
     {
-      "palabra":"nahelegen",
-      "fecha":[28,12,2022]
+      "palabra": "vervollstaendigen",
+      "fecha": [15, 5, 2023]
     },
     {
-      "palabra":"niederdruecken",
-      "fecha":[29,11,2022]
+      "palabra": "abarbeiten",
+      "fecha": [9, 4, 2023]
     },
     {
-      "palabra":"notduerftig",
-      "fecha":[29,11,2022]
+      "palabra": "nachgelagert",
+      "fecha": [26, 7, 2023]
     },
     {
-      "palabra":"die Plausibilisierung",
-      "fecha":[13,12,2022]
+      "palabra": "der Einsatz",
+      "fecha": [18, 1, 2025]
     },
     {
-      "palabra":"raushauen",
-      "fecha":[15,12,2022]
+      "palabra": "durchreichen",
+      "fecha": [3, 6, 2023]
     },
     {
-      "palabra":"die Rechnungslegung",
-      "fecha":[12,12,2022]
+      "palabra": "das Tafelwerk",
+      "fecha": [25, 10, 2024]
     },
     {
-      "palabra":"die Rentenperiode",
-      "fecha":[29,12,2022]
+      "palabra": "ungemein",
+      "fecha": [19, 8, 2024]
     },
     {
-      "palabra":"das Tafelwerk",
-      "fecha":[13,12,2022]
+      "palabra": "die Rechnungslegung",
+      "fecha": [20, 1, 2025]
     },
     {
-      "palabra":"ungemein",
-      "fecha":[29,11,2022]
+      "palabra": "bestmoeglich",
+      "fecha": [12, 2, 2023]
     },
     {
-      "palabra":"unterlassen",
-      "fecha":[26,5,2023]
+      "palabra": "niederdruecken",
+      "fecha": [1, 11, 2022]
     },
     {
-      "palabra":"unuebersichtlich",
-      "fecha":[7,12,2022]
+      "palabra": "fachlichkeit",
+      "fecha": [16, 7, 2023]
     },
     {
-      "palabra":"unzulaenglich",
-      "fecha":[14,12,2022]
+      "palabra": "unuebersichtlich",
+      "fecha": [30, 9, 2024]
     },
     {
-      "palabra":"verbindlich",
-      "fecha":[28,12,2022]
+      "palabra": "abgelten",
+      "fecha": [4, 12, 2023]
     },
     {
-      "palabra":"verkomplizieren",
-      "fecha":[4,1,2023]
+      "palabra": "das Fachkonzept",
+      "fecha": [5, 4, 2023]
     },
     {
-      "palabra":"verschaffen",
-      "fecha":[13,12,2022]
+      "palabra": "unzulaenglich",
+      "fecha": [24, 10, 2024]
     },
     {
-      "palabra":"vervollstaendigen",
-      "fecha":[12,12,2022]
+      "palabra": "nahelegen",
+      "fecha": [14, 3, 2024]
     },
     {
-      "palabra":"die Verweildauer",
-      "fecha":[28,12,2022]
+      "palabra": "die Verweildauer",
+      "fecha": [10, 6, 2023]
     },
     {
-      "palabra":"der Vorgang",
-      "fecha":[28,12,2022]
+      "palabra": "das Vorhaben",
+      "fecha": [22, 7, 2024]
     },
     {
-      "palabra":"das Vorhaben",
-      "fecha":[12,12,2022]
+      "palabra": "das Formelwerk",
+      "fecha": [9, 11, 2023]
     },
     {
-      "palabra":"vorlaeufig",
-      "fecha":[28,12,2022]
+      "palabra": "zusicherung",
+      "fecha": [8, 5, 2024]
     },
     {
-      "palabra":"der Zeitwert",
-      "fecha":[28,12,2022]
+      "palabra": "zuweisen",
+      "fecha": [21, 12, 2023]
     },
     {
-      "palabra":"zusammensetzen",
-      "fecha":[14,12,2022]
+      "palabra": "entkoppeln",
+      "fecha": [13, 9, 2024]
     },
     {
-      "palabra":"der Zusatz",
-      "fecha":[13,12,2022]
+      "palabra": "entbehrlich",
+      "fecha": [29, 7, 2023]
     },
     {
-      "palabra":"die Zustaendigkeit",
-      "fecha":[28,12,2022]
+      "palabra": "unterlassen",
+      "fecha": [6, 1, 2025]
     },
     {
-      "palabra":"die Zusicherung",
-      "fecha":[5,12,2022]
-    },
-    {
-      "palabra":"zuweisen",
-      "fecha":[12,12,2022]
-    },
-    {
-      "palabra":"zwangslaeufig",
-      "fecha":[28,12,2022]
-      },
+      "palabra": "die Rentenperiode",
+      "fecha": [15, 11, 2023]
+    }
   ]
 }
