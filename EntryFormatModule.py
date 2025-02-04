@@ -21,3 +21,7 @@ def adjust_digits(date):
     else:
         return f'{date}'
     
+def is_noun(text):
+    if count_words(text) == 2:
+        return True
+    

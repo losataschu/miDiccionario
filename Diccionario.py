@@ -1,6 +1,6 @@
 
-import formatting_module as fm
-import editing_module as edm
+import EntryFormatModule as entryfmt
+import EntryFileEditor as entryedt
 
 class Entry:
     def __init__(self, text, date, category):
@@ -25,29 +25,24 @@ class Noun(Entry):
 class Dictionary:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.list = self.create_list()
+        self.all_entries = self.entry_list()
 
-    def create_list(self):
-        my_entries = edm.load_entries(self.file_path)
+    def entry_list(self):
+        my_entries = entryedt.load_entries(self.file_path)
         #print(my_entries["Entradas"])
-        entries_categorized = []
+        entry_list_categorized = []
         for entry in my_entries["Entradas"]:
             #print(entrada["palabra"])
-            if fm.count_words(entry["palabra"]) == 2:
-                parts = entry["palabra"].split(" ", 1)
-                if len(parts) == 2:
-                    entries_categorized.append(
-                        Noun(article=parts[0],
-                             text=parts[1],
-                             date=entry["fecha"],
-                             category="Noun")
-                    )
+            if entryfmt.is_noun(entry["palabra"]):
+                noun_parts = entry["palabra"].split(" ", 1)
+                entry_list_categorized.append(
+                    Noun(article=noun_parts[0],
+                         text=noun_parts[1],
+                         date=entry["fecha"],
+                         category="Noun")
+                )
             else:
-                entries_categorized.append(Entry(text=entry["palabra"],
+                entry_list_categorized.append(Entry(text=entry["palabra"],
                 date=entry["fecha"], category="Other"))
-        return entries_categorized
-
-#def isSustantivo(entrada):
-#   if contarPalabras(entrada.texto) == 2:
-#     return True
+        return entry_list_categorized
 
