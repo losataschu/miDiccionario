@@ -22,8 +22,8 @@ class VocabularyEntries:
             # TODO: add something to deal with wrong entries
             day = entryfmt.adjust_digits(entry.date[0])
             month = entryfmt.adjust_digits(entry.date[1])
-            show_date = day+'-'+month+f'-{entry.date[2]}'
-            list_row = [entry.__repr__(), show_date, entry.category]
+            adjusted_date = day+'-'+month+f'-{entry.date[2]}'
+            list_row = [entry.__repr__(), adjusted_date, entry.category]
             vocabulary.append(list_row)
             i += 1
         return entry_numbering, vocabulary, ["", "Text", "Date", "Category"]

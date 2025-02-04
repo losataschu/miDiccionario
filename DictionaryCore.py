@@ -1,6 +1,6 @@
 
 import EntryFormatModule as entryfmt
-import EntryFileEditor as entryedt
+import FileEditorModule as filedt
 
 class Entry:
     def __init__(self, text, date, category):
@@ -25,10 +25,10 @@ class Noun(Entry):
 class Dictionary:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.all_entries = self.entry_list()
+        self.all_entries = self.create_entry_list()
 
-    def entry_list(self):
-        my_entries = entryedt.load_entries(self.file_path)
+    def create_entry_list(self):
+        my_entries = filedt.load_entries(self.file_path)
         #print(my_entries["Entradas"])
         entry_list_categorized = []
         for entry in my_entries["Entradas"]:
