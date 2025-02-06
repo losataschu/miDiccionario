@@ -9,7 +9,6 @@ import DictionaryCore as dcore
 import FilterSortModule as filt
 import FileEditorModule as filedt
 
-
 def main():
     new_dict = dcore.Dictionary("entradas_reducidas.json")
     my_entries = new_dict.all_entries

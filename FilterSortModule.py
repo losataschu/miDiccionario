@@ -19,22 +19,21 @@ def filter_entries(entries_vocab, attribute, value):
     try:
         match attribute:
             case "category":
-                valid_m.validate_category(value)
-                filtered_vocabulary = [entry for entry in entries_vocab if entry.category.lower() == value.lower()]
+                filtered_vocabulary = filter_by_category(entries_vocab, value)
             case "initial_letter": 
-                valid_m.validate_init_letter(value)
-                filtered_vocabulary = [entry for entry in entries_vocab if entry.text[0].lower() == value.lower()]
-            case "year" | "month" | "day":
-                valid_m.validate_date_number(value)
-                filtered_vocabulary = date_filter(entries_vocab, attribute, value)
+                filtered_vocabulary = filter_by_initial_letter(entries_vocab, value)
+            case "year":
+                filtered_vocabulary = filter_by_year(entries_vocab, value)
+            case "month":
+                filtered_vocabulary = filter_by_month(entries_vocab, value)
+            case "day":
+                filtered_vocabulary = filter_by_day(entries_vocab, value)
             case "date":
-                valid_m.validate_date_list(value)
-                filtered_vocabulary = date_filter(entries_vocab, attribute, value)
+                filtered_vocabulary = filter_by_exact_date(entries_vocab, value)
             case "monthly":
-                valid_m.validate_month_tuple(value)
-                filtered_vocabulary = date_filter(entries_vocab, attribute, value)
+                filtered_vocabulary = filter_by_day_month(entries_vocab, value)
             case _:
-                return print_abort("No method for that attribute.")
+                return print_abort("No filter for that attribute.")
     
         #this logic creates the table if and only if the filtered list is not empty    
         if filtered_vocabulary:
@@ -44,37 +43,45 @@ def filter_entries(entries_vocab, attribute, value):
     except ValueError as e:
         print(f"Validation error: {e}")
 
-def date_filter(entries_vocab, attribute, value):
-    filtered_vocabulary = []
-    #print(value)
-    match attribute:
-        case "year":
-            for i in entries_vocab:
-                if i.date[2] == value:
-                    filtered_vocabulary.append(i)
-        case "month":
-            valid_m.validate_month_tuple([1, value])
-            for i in entries_vocab:
-                if i.date[1] == value:
-                    filtered_vocabulary.append(i)
-        case "day":
-            valid_m.validate_month_tuple([value, 12])
-            for i in entries_vocab:
-                if i.date[0] == value:
-                    filtered_vocabulary.append(i)
-        case "monthly":
-            valid_m.validate_month_tuple(value)
-            for i in entries_vocab:
-                if i.date[0] == value[0] and i.date[1] == value[1]:
-                    filtered_vocabulary.append(i)
-        case "date":
-            valid_m.validate_date_list(value)
-            for i in entries_vocab:
-                if i.date == value:
-                    filtered_vocabulary.append(i)
-        case _:
-            return print_abort("Invalid time category!")
-    return filtered_vocabulary
+def filter_by_category(entry_list, value):
+    valid_m.validate_category(value)
+    filtered_entry_list = [entry for entry in entry_list if
+                           entry.category.lower() == value.lower()]
+    return filtered_entry_list
+
+def filter_by_initial_letter(entry_list, value):
+    valid_m.validate_init_letter(value)
+    filtered_entry_list = [entry for entry in entry_list if
+                           entry.text[0].lower() == value.lower()]
+    return filtered_entry_list
+
+def filter_by_year(entry_list, value):
+    valid_m.validate_date_number(value)
+    filtered_entry_list = [entry for entry in entry_list if entry.date[2] == value]
+    return filtered_entry_list
+
+def filter_by_month(entry_list, value):
+    valid_m.validate_date_number(value)
+    valid_m.validate_month_tuple([1, value])
+    filtered_entry_list = [entry for entry in entry_list if entry.date[1] == value]
+    return filtered_entry_list
+
+def filter_by_day(entry_list, value):
+    valid_m.validate_date_number(value)
+    valid_m.validate_month_tuple([value, 12])
+    filtered_entry_list = [entry for entry in entry_list if entry.date[0] == value]
+    return filtered_entry_list
+
+def filter_by_day_month(entry_list, value):
+    valid_m.validate_month_tuple(value)
+    filtered_entry_list = [entry for entry in entry_list if
+                           (entry.date[0] == value[0] and entry.date[1] == value[1])]
+    return filtered_entry_list
+
+def filter_by_exact_date(entry_list, value):
+    valid_m.validate_date_list(value)
+    filtered_entry_list = [entry for entry in entry_list if entry.date == value]
+    return filtered_entry_list
 
 # def debug_key(entry):
 #     print(f"Text: {entry.text}, Key Used: {entry.text.lower()}")
