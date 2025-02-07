@@ -40,7 +40,7 @@ def validate_date_list(value):
     validate_month_tuple([day, month])
     return True
 
-def validate_entry(file_entry_list, text):
-    for entry in file_entry_list["Entradas"]:
-        if entry["palabra"] == text:
+def validate_entry(entry_list, text):
+    for entry in entry_list:
+        if entry.__repr__() == text:
             return True
