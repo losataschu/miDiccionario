@@ -8,24 +8,30 @@ Created on Tue Jan 14 20:13:22 2025
 import json
 import EntryFormatModule as eformat
 import ValidatingModule as valid_m
+import FilterSortModule as fsm
 
-def add_entry(entry_list, text, day, month, year):
+def add_entry(a_dict, text, day, month, year):
     try:
-        if valid_m.validate_entry(entry_list, text):
+        if valid_m.validate_entry(a_dict.all_entries, text):
             raise ValueError("Please enter a new entry.")
         #TODO: check the correct numerical input.
         new_entry = eformat.build_entry(text, [day, month, year])
-        entry_list.append(new_entry)
+        if a_dict.indexed_entries is not None:
+            fsm.update_index_add(a_dict.indexed_entries, new_entry)
+        a_dict.all_entries.append(new_entry)
     except ValueError as e:
         print(f"Existing entry: {e}")
 
-def delete_entry(entry_list, text):
+def delete_entry(a_dict, text):
+    entry_list = a_dict.all_entries
     initial_count = len(entry_list)
     entry_list[:] = [entry for entry in entry_list if 
                               entry.__repr__() != text]
     if len(entry_list) == initial_count:
         print("Not found: no existing entry with that text.")
         return
+    if a_dict.indexed_entries is not None:
+        fsm.update_index_remove(a_dict.indexed_entries, text)
     print(f"Entry '{text}' deleted successfully.")
 
 def save_entries_to_file(entry_list, filename):
