@@ -39,8 +39,7 @@ ATTRIBUTE_VALIDATION = {"category" : valid_m.validate_category,
 def create_print_entry_table(entry_list):
     entries_vocab = fdm.VocabularyEntries(entry_list)
     table_with_entries = entries_vocab.create_formatted_table()
-    # entries_vocab.show_table(table_with_entries[0], table_with_entries[1], table_with_entries[2])
-    entries_vocab.show_table_tabulate(table_with_entries[0], table_with_entries[1])
+    entries_vocab.show_table(table_with_entries[0], table_with_entries[1])
     
 def index_filter_attributes(entry_list):
     index = create_index_dict()

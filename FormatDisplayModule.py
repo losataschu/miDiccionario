@@ -13,39 +13,18 @@ class VocabularyEntries:
     
 # Create the table using the entries in the the dictionary
     def create_formatted_table(self):
-        entry_numbering = []
-        vocabulary = []
         row = []
         i = 1
-        entry_i = "Entry "
         for entry in self.vocab_entries:
-            entry_numbering.append(entry_i + str(i))
             # TODO: add something to deal with wrong entries
             adjusted_date = adjust_date(entry.date[0], entry.date[1], entry.date[2])
             row.append(create_row(i, entry, adjusted_date))
-            vocabulary.append([entry.__repr__(), adjusted_date, entry.category])
             i += 1
-        # return entry_numbering, vocabulary, ["", "Text", "Date", "Category"]
         return row, ["", "Text", "Date", "Category"]
 
 # Function to show a well-ordered table with my vocabulary   
-    def show_table(self, enumeration, vocabulary, column_names):
-        # print(tabulate([column_names, ["t1","t2","t3","t4"]], headers="firstrow"))
-        # TODO: here, I have to complete the function specifying the desired format
-        print("{:<10} {:<40} {:<12} {:<12}".format(*column_names))
-        # TODO: here handle with the case that enumeration and vocabulary have different lengths
-        for i in range(len(vocabulary)):
-            print("{:<10} {:<40} {:<12} {:<12}".format(enumeration[i], *vocabulary[i]))
-
-# Function to show a well-ordered table with my vocabulary   
-    def show_table_tabulate(self, rows, column_names):
-        # print(tabulate([column_names, ["t1","t2","t3","t4"]], headers="firstrow"))
+    def show_table(self, rows, column_names):
         print(tabulate(rows, headers=column_names))
-        # TODO: here, I have to complete the function specifying the desired format
-        # print("{:<10} {:<40} {:<12} {:<12}".format(*column_names))
-        # TODO: here handle with the case that enumeration and vocabulary have different lengths
-        # for i in range(len(vocabulary)):
-            # print("{:<10} {:<40} {:<12} {:<12}".format(enumeration[i], *vocabulary[i]))
 
 def count_words(text):
     if len(text) == 0:
