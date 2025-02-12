@@ -21,6 +21,14 @@ def validate_date_number(value):
         raise ValueError("A date parameter cannot be negative!")
     return True
 
+def validate_month(value):
+    validate_date_number(value),
+    return validate_month_tuple([1, value])
+
+def validate_day(value):
+    validate_date_number(value)
+    return validate_month_tuple([value, 12])
+
 def validate_month_tuple(value):
     if not isinstance(value, list) or len(value) != 2:
         raise ValueError("Recall the correct format: [day, month].")
