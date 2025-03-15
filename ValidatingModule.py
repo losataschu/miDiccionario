@@ -17,8 +17,8 @@ def validate_init_letter(value):
     return True
 
 def validate_date_number(value):
-    if not isinstance(value, int) or value < 0:
-        raise ValueError("A date parameter cannot be negative!")
+    if not isinstance(value, int) or value <= 0:
+        raise ValueError("A date parameter has to be positive!")
     return True
 
 def validate_month(value):
@@ -30,7 +30,7 @@ def validate_day(value):
     return validate_month_tuple([value, 12])
 
 def validate_month_tuple(value):
-    if not isinstance(value, list) or len(value) != 2:
+    if not isinstance(value, list) or (len(value) != 2):
         raise ValueError("Recall the correct format: [day, month].")
     for i in value:
         validate_date_number(i)
@@ -42,8 +42,7 @@ def validate_month_tuple(value):
 def validate_date_list(value):
     if not isinstance(value, list) or len(value) != 3:
         raise ValueError("Date must have the following format: [day, month, year].")
-    for i in value:
-        validate_date_number(i)
+    validate_date_number(value[2])
     day, month, year = value
     validate_month_tuple([day, month])
     return True

@@ -9,17 +9,21 @@ import json
 import DictionaryCore as dcore
 import ValidatingModule as valid_m
 import FilterSortModule as fsm
-from warning_module import print_abort
+import ErrorModule as err_m
 
 def add_entry(entry_dict, text, day, month, year):
     try:
-        if valid_m.validate_entry(entry_dict.all_entries, text):
-            raise ValueError("Please enter a new entry.")
+        check_existing_entry(entry_dict.all_entries, text)
         #TODO: check the correct numerical input.
         new_entry = dcore.build_entry(text, [day, month, year])
         add_and_index_entry(entry_dict, new_entry)
     except ValueError as e:
         print(f"Existing entry: {e}")
+
+def check_existing_entry(entry_list, text):
+    if valid_m.validate_entry(entry_list, text):
+        raise ValueError("Please enter a new entry.")
+    return True
 
 def add_and_index_entry(entry_dict, entry):
     if entry_dict.indexed_entries is not None:
@@ -31,16 +35,23 @@ def delete_entry(entry_dict, text):
     initial_count = len(entry_list)
     entry_list[:] = [entry for entry in entry_list if 
                               entry.__repr__() != text]
-    if len(entry_list) == initial_count:
-        return print_abort("Not found: no existing entry with that text.")
-    if entry_dict.indexed_entries is not None:
-        fsm.update_index_remove(entry_dict.indexed_entries, text)
-    print(f"Entry '{text}' deleted successfully.")
+    try:
+        check_new_list(len(entry_list), initial_count)
+        if entry_dict.indexed_entries is not None:
+            fsm.update_index_remove(entry_dict.indexed_entries, text)
+        print(f"Entry '{text}' deleted successfully.")
+    except err_m.NotFoundError as e:
+        print(f"{e}: no existing entry with that text.")
+    
+def check_new_list(new_count, previous_count):
+    if new_count == previous_count:
+        raise err_m.NotFoundError("Not found")
+    return True
 
-def save_entries_to_file(entry_list, filename):
-    #TODO create JSON-formatted list
+def save_entries_to_file(entry_dict, filename):
+    #TODO how to deal with this using an instance of Dictionary rather than an entry list
     my_entries = []
-    for entry in entry_list:
+    for entry in entry_dict.all_entries:
         json_entry = {"palabra" : entry.__repr__(), "fecha" : entry.date}
         my_entries.append(json_entry)
     my_dictionary = {"Entradas" : my_entries}

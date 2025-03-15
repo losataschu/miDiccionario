@@ -7,6 +7,8 @@ Created on Mon Jan 13 11:50:54 2025
 
 from tabulate import tabulate
 
+ARTICLES = ["der", "die", "das"]
+
 class VocabularyEntries:
     def __init__(self, vocab_entries):
         self.vocab_entries = vocab_entries
@@ -23,17 +25,18 @@ class VocabularyEntries:
         return row, ["", "Text", "Date", "Category"]
 
 # Function to show a well-ordered table with my vocabulary   
-    def show_table(self, rows, column_names):
-        print(tabulate(rows, headers=column_names))
+def show_table(rows, column_names):
+    print(tabulate(rows, headers=column_names))
 
 def count_words(text):
     if len(text) == 0:
         return 0
-    words = 1
-    for letter in text:
-        if letter == ' ' and text[0] != letter and text[-1] != letter:
-            words += 1
-    return words
+    total_words = 0
+    words_in_text = text.split(" ")
+    for element in words_in_text:
+        if element != '':
+            total_words += 1
+    return total_words
 
 def adjust_date(day, month, year):
     return f"{adjust_digits(day)}-{adjust_digits(month)}-{year}"
@@ -49,6 +52,6 @@ def create_row(numbering, entry, chilean_date):
     return ["Entry "+str(numbering), entry.__repr__(), chilean_date, entry.category]
 
 def is_noun(text):
-    if count_words(text) == 2:
+    if count_words(text) == 2 and text[:3] in ARTICLES:
         return True
             

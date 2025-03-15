@@ -7,7 +7,7 @@ Created on Mon Jan 13 11:57:21 2025
 from itertools import chain
 from collections import defaultdict
 import FormatDisplayModule as fdm
-from warning_module import print_abort
+import ErrorModule as err_m
 import ValidatingModule as valid_m
 
 ATTRIBUTE_STRATEGIES = {"category" : lambda entry : entry.category.lower(),
@@ -39,7 +39,7 @@ ATTRIBUTE_VALIDATION = {"category" : valid_m.validate_category,
 def create_print_entry_table(entry_list):
     entries_vocab = fdm.VocabularyEntries(entry_list)
     table_with_entries = entries_vocab.create_formatted_table()
-    entries_vocab.show_table(table_with_entries[0], table_with_entries[1])
+    fdm.show_table(table_with_entries[0], table_with_entries[1])
     
 def index_filter_attributes(entry_list):
     index = create_index_dict()
@@ -76,15 +76,24 @@ def check_delete_entry(indexed_entries, text):
 def filter_entries(entry_dict, attribute, value):
     indices = entry_dict.indexed_entries
     try:
-        if indices is None:
-            raise NotImplementedError("Index not initialized. Run setup_filtering() first.")
-        if attribute not in indices.keys():
-            return print_abort("No filter for that attribute.")
+        check_index_initialization(indices)
+        check_proper_attribute(attribute, indices.keys())
         filter_and_display_table(indices, attribute, value)
     except NotImplementedError as e:
         print(f"{e}")
+    except err_m.NotFoundError as e:
+        print(f"{e}: no filter for that attribute.")
     except ValueError as e:
         print(f"Validation error: {e}")
+    
+def check_index_initialization(indexed_entries):
+    if indexed_entries is None:
+        raise NotImplementedError("Index not initialized. Run setup_filtering() first.")
+    return True
+
+def check_proper_attribute(given_attribute, stored_attributes):
+    if given_attribute not in stored_attributes:
+        raise err_m.NotFoundError("Not found")
         
 def filter_and_display_table(indexed_entries, attribute, value):
     filtered_vocabulary = filter_by_attribute(indexed_entries, attribute, value)
@@ -109,6 +118,7 @@ def validate_value(attribute, value):
 #     return entry.text.lower()
 
 # this function redirects the sorting to the respective method
+#TODO: write in a better fashion. Use a try-except block for the general case.
 def sort_entries(entry_list, attribute):
     sorted_vocabulary = []
     match attribute:
@@ -124,7 +134,7 @@ def sort_entries(entry_list, attribute):
         case "newest":
             sorted_vocabulary = sorted(entry_list, key=lambda x: (x.date[2], x.date[1], x.date[0]), reverse=True)
         case _:
-            return print_abort("No method for that attribute.")
+            raise err_m.NotFoundError("Not found: no method for that attribute.")
     
     #this logic creates the table if and only if the filtered list is not empty    
     if sorted_vocabulary:
