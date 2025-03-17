@@ -33,20 +33,19 @@ def add_and_index_entry(entry_dict, entry):
 def delete_entry(entry_dict, text):
     entry_list = entry_dict.all_entries
     initial_count = len(entry_list)
-    entry_list[:] = [entry for entry in entry_list if 
-                              entry.__repr__() != text]
     try:
-        check_new_list(len(entry_list), initial_count)
+        entry_list = create_check_new_list(entry_list, text, initial_count)
         if entry_dict.indexed_entries is not None:
             fsm.update_index_remove(entry_dict.indexed_entries, text)
         print(f"Entry '{text}' deleted successfully.")
     except err_m.NotFoundError as e:
         print(f"{e}: no existing entry with that text.")
     
-def check_new_list(new_count, previous_count):
-    if new_count == previous_count:
+def create_check_new_list(entry_list, text, previous_count):
+    entry_list[:] = [entry for entry in entry_list if entry.__repr__() != text]
+    if len(entry_list) == previous_count:
         raise err_m.NotFoundError("Not found")
-    return True
+    return entry_list
 
 def save_entries_to_file(entry_dict, filename):
     #TODO how to deal with this using an instance of Dictionary rather than an entry list

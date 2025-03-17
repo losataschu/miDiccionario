@@ -14,6 +14,7 @@ import FormatDisplayModule as fdm
 import FilterSortModule as fsm
 import FileEditorModule as fem
 import ValidatingModule as vm
+import ErrorModule as errm
 
 class TestCalc(unittest.TestCase):
     
@@ -38,8 +39,9 @@ class TestCalc(unittest.TestCase):
     def setUp(self):
         # print("Set up")
         self.entry1 = dcore.build_entry("das Bier", [22, 1, 2025])
-        self.entry2 = dcore.build_entry("mitempfinden", [22, 1, 2025])
-        self.entry3 = dcore.build_entry("mein Versehen", [22, 1, 2025])
+        self.entry2 = dcore.build_entry("mitempfinden", [2, 11, 2023])
+        self.entry3 = dcore.build_entry("mein Versehen", [12, 10, 2024])
+        self.test_entries = [self.entry1, self.entry2, self.entry3]
         self.simple_dict = dcore.Dictionary("entrada_simple.json")
         self.entry_list = self.simple_dict.all_entries
         
@@ -101,6 +103,20 @@ class TestCalc(unittest.TestCase):
         filtered_list = fsm.filter_by_attribute(self.simple_dict.indexed_entries, "date", [12,12,2023])
         self.assertEqual(len(filtered_list), 0)
     
+    def test_sort_list(self):
+        sorted_list = fsm.sort_by_attribute(self.test_entries, "alphabetical")
+        self.assertEqual(sorted_list[1].__repr__(), "mein Versehen")
+        sorted_list = fsm.sort_by_attribute(self.test_entries, "alphabetical_inv")
+        self.assertEqual(sorted_list[0].__repr__(), "mitempfinden")
+        self.assertEqual(sorted_list[2].__repr__(), "das Bier")
+        sorted_list = fsm.sort_by_attribute(self.test_entries, "oldest")
+        self.assertEqual(sorted_list[1].__repr__(), "mein Versehen")
+        sorted_list = fsm.sort_by_attribute(self.test_entries, "newest")
+        self.assertEqual(sorted_list[2].__repr__(), "mitempfinden")
+        self.assertEqual(sorted_list[0].__repr__(), "das Bier")
+        self.assertRaises(errm.NotFoundError, fsm.sort_by_attribute, self.test_entries,
+                         "category")
+    
     def test_add_entry(self):
         initial_size = len(self.simple_dict.all_entries)
         fem.add_entry(self.simple_dict, "jemandem sein Wort geben", 22, 1, 2025)
@@ -112,6 +128,8 @@ class TestCalc(unittest.TestCase):
         initial_size = len(self.entry_list)
         fem.delete_entry(self.simple_dict, "abarbeiten")
         self.assertEqual(len(self.entry_list), initial_size - 1)
+        self.assertRaises(errm.NotFoundError, fem.create_check_new_list,
+                          self.entry_list, "abarbeiten", initial_size - 1)
 
     def test_validating_module(self):
         with self.assertRaises(ValueError):
@@ -128,21 +146,19 @@ class TestCalc(unittest.TestCase):
 
     def test_validate_entry(self):
         # TODO: write this in a better fashion.
-        entries = [self.entry1, self.entry2, self.entry3]
-        self.assertEqual(vm.validate_entry(entries, "das Bier"), True)
-        self.assertEqual(vm.validate_entry(entries, "mitempfinden"), True)
-        self.assertEqual(vm.validate_entry(entries, "mein Versehen"), True)
-        self.assertEqual(vm.validate_entry(entries, "mein Vers"), None)
+        self.assertEqual(vm.validate_entry(self.test_entries, "das Bier"), True)
+        self.assertEqual(vm.validate_entry(self.test_entries, "mitempfinden"), True)
+        self.assertEqual(vm.validate_entry(self.test_entries, "mein Versehen"), True)
+        self.assertEqual(vm.validate_entry(self.test_entries, "mein Vers"), None)
     
     def test_saving_file(self):
         new_dict2 = dcore.Dictionary("entradas_testeo.json")
-        entries = [self.entry1, self.entry2, self.entry3]
-        for entry in entries:
+        for entry in self.test_entries:
             fem.add_entry(new_dict2, entry.__repr__(), entry.date[0], entry.date[1],
                           entry.date[2])
         fem.save_entries_to_file(new_dict2, "entradas_testeo.json")
         new_dict = dcore.Dictionary("entradas_testeo.json")
-        self.assertEqual(len(new_dict.all_entries), len(entries))
+        self.assertEqual(len(new_dict.all_entries), len(self.test_entries))
 
 if __name__ == "__main__":
     unittest.main()

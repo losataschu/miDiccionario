@@ -120,7 +120,16 @@ def validate_value(attribute, value):
 # this function redirects the sorting to the respective method
 #TODO: write in a better fashion. Use a try-except block for the general case.
 def sort_entries(entry_list, attribute):
-    sorted_vocabulary = []
+    try:
+        sorted_vocabulary = sort_by_attribute(entry_list, attribute)
+    #this logic creates the table if and only if the filtered list is not empty    
+        if sorted_vocabulary:
+            create_print_entry_table(sorted_vocabulary)
+    except err_m.NotFoundError as e:
+        print(f"{e}: no method for that attribute.")
+
+def sort_by_attribute(entry_list, attribute):
+    sorted_vocabulary = None
     match attribute:
         case "alphabetical":
             sorted_vocabulary = sorted(entry_list, key=lambda x: x.text.lower())
@@ -134,8 +143,5 @@ def sort_entries(entry_list, attribute):
         case "newest":
             sorted_vocabulary = sorted(entry_list, key=lambda x: (x.date[2], x.date[1], x.date[0]), reverse=True)
         case _:
-            raise err_m.NotFoundError("Not found: no method for that attribute.")
-    
-    #this logic creates the table if and only if the filtered list is not empty    
-    if sorted_vocabulary:
-        create_print_entry_table(sorted_vocabulary)
+            raise err_m.NotFoundError("Not found")
+    return sorted_vocabulary
