@@ -105,9 +105,9 @@ class TestCalc(unittest.TestCase):
         initial_size = len(self.simple_dict.all_entries)
         fem.add_entry(self.simple_dict, "jemandem sein Wort geben", 22, 1, 2025)
         self.assertEqual(len(self.simple_dict.all_entries), initial_size + 1)
-        self.assertEqual(fem.add_entry(self.simple_dict, "durchsetzen", 22, 1, 2025),
-                         "Existing entry: Please enter a new entry.")
-        
+        self.assertRaises(ValueError, fem.check_existing_entry, self.simple_dict.all_entries,
+                          "durchsetzen")
+                          
     def test_delete_entry(self):
         initial_size = len(self.entry_list)
         fem.delete_entry(self.simple_dict, "abarbeiten")
@@ -138,7 +138,8 @@ class TestCalc(unittest.TestCase):
         new_dict2 = dcore.Dictionary("entradas_testeo.json")
         entries = [self.entry1, self.entry2, self.entry3]
         for entry in entries:
-            fem.add_entry(new_dict2, entry.__repr__(), entry.date[0], entry.date[1], entry.date[2])
+            fem.add_entry(new_dict2, entry.__repr__(), entry.date[0], entry.date[1],
+                          entry.date[2])
         fem.save_entries_to_file(new_dict2, "entradas_testeo.json")
         new_dict = dcore.Dictionary("entradas_testeo.json")
         self.assertEqual(len(new_dict.all_entries), len(entries))
