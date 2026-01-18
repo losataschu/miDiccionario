@@ -52,6 +52,6 @@ def create_row(numbering, entry, chilean_date):
     return ["Entry "+str(numbering), entry.__repr__(), chilean_date, entry.category]
 
 def is_noun(text):
-    if count_words(text) == 2 and text[:3] in ARTICLES:
+    if count_words(text) == 2 and text[:3].lower() in ARTICLES:
         return True
             

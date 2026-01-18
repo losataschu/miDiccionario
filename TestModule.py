@@ -16,10 +16,8 @@ import FileEditorModule as fem
 import ValidatingModule as vm
 import ErrorModule as errm
 
-class TestCalc(unittest.TestCase):
-    
-    #TODO: add test methods for sort function.
-    
+class TestDictionaryFunctions(unittest.TestCase):
+        
     @classmethod
     def setUpClass(cls):
         no_entry_dict = {"Entradas" : []}
@@ -29,7 +27,6 @@ class TestCalc(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         # pass
-        #TODO: borrar archivo creado
         if os.path.exists("entradas_testeo.json"):
         # files = os.listdir("miDiccionario")
         # for file in files:
@@ -67,6 +64,7 @@ class TestCalc(unittest.TestCase):
 
     def test_filter_attribute(self):
         # INCOMPLETE
+        self.assertRaises(NotImplementedError, fsm.check_index_initialization, self.simple_dict.indexed_entries)
         self.simple_dict.setup_filtering()
         filtered_list = fsm.filter_by_attribute(self.simple_dict.indexed_entries, "month", 11)
         self.assertEqual(len(filtered_list), 1)
@@ -102,6 +100,8 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(filtered_list[0].date, [12,12,2022])
         filtered_list = fsm.filter_by_attribute(self.simple_dict.indexed_entries, "date", [12,12,2023])
         self.assertEqual(len(filtered_list), 0)
+        self.assertRaises(errm.NotFoundError, fsm.check_proper_attribute, "number_of_words",
+                          self.simple_dict.indexed_entries.keys())
     
     def test_sort_list(self):
         sorted_list = fsm.sort_by_attribute(self.test_entries, "alphabetical")
@@ -121,6 +121,8 @@ class TestCalc(unittest.TestCase):
         initial_size = len(self.simple_dict.all_entries)
         fem.add_entry(self.simple_dict, "jemandem sein Wort geben", 22, 1, 2025)
         self.assertEqual(len(self.simple_dict.all_entries), initial_size + 1)
+        # TODO: empty strings should not be added!
+        fem.add_entry(self.simple_dict, "", 4, 4, 2024)
         self.assertRaises(ValueError, fem.check_existing_entry, self.simple_dict.all_entries,
                           "durchsetzen")
                           
@@ -145,7 +147,6 @@ class TestCalc(unittest.TestCase):
             vm.validate_date_list([0, 5, 0])
 
     def test_validate_entry(self):
-        # TODO: write this in a better fashion.
         self.assertEqual(vm.validate_entry(self.test_entries, "das Bier"), True)
         self.assertEqual(vm.validate_entry(self.test_entries, "mitempfinden"), True)
         self.assertEqual(vm.validate_entry(self.test_entries, "mein Versehen"), True)
